@@ -1,12 +1,6 @@
 /*
  * main.cpp
  *
- *  Created on: Aug 29, 2022
- *      Author: student
- */
-/*
- * main.cpp
- *
  *  Created on: Aug 23, 2022
  *      Author: Nathan Saxe
  */
@@ -101,7 +95,6 @@ int list_length(LLnode * p){
 	if(p!=nullptr){
 		while(p != nullptr){
 			counter++;
-			cout << p->theData.studentName << endl;
 			p = p->fwdPtr;
 		}
 	}
@@ -122,9 +115,22 @@ void push_front(LLnode * &llh, Student data){
 
 }
 void push_back(LLnode * &llh, Student data){
-	LLnode * newNode = new LLnode;
+	LLnode* newNode = new LLnode;
 
-	while()
+	newNode->theData = data;
+
+	newNode->fwdPtr = nullptr;
+
+	if(llh == nullptr){
+		llh = newNode;
+	}
+	else{
+		LLnode *last = llh;
+		while(last->fwdPtr!=nullptr){
+			last = last->fwdPtr;
+		}
+		last->fwdPtr = newNode;
+	}
 }
 
 Student retrieve_front(LLnode * p){
@@ -137,7 +143,7 @@ Student retrieve_front(LLnode * p){
 
 }
 Student retrieve_back(LLnode * p){
-	while(p!=nullptr){
+	while(p->fwdPtr!=nullptr){
 		p = p->fwdPtr;
 	}
 	return p->theData;
@@ -155,7 +161,3 @@ void display_nodes(LLnode * p){
 			cout << "Empty List" << endl;
 		}
 }
-//cout << "node " << counter << "address -> " << p->fwdPtr << "Student Name:" << p->fwdPtr->theData.studentName << "Student ID: " << p->fwdPtr->theData.studentName << endl;
-
-
-
