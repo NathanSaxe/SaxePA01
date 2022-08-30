@@ -115,34 +115,16 @@ int list_length(LLnode * p){
 
 void push_front(LLnode * &llh, Student data){
 	LLnode * newNode = new LLnode;
+	LLnode * temp = llh;
 	newNode->theData = data;
-	newNode->fwdPtr = llh;
+	newNode->fwdPtr = temp;
 	llh = newNode;
 
 }
 void push_back(LLnode * &llh, Student data){
 	LLnode * newNode = new LLnode;
-	LLnode * temp = new LLnode;
-	temp = llh;
-	newNode->theData = data;
 
-
-	newNode->fwdPtr = llh->fwdPtr;
-
-	//newNode->fwdllhtr = llh->fwdllhtr;
-	if(llh == nullptr){
-		llh = newNode;
-	}
-
-	while(temp!=nullptr){
-		temp = temp->fwdPtr;
-	}
-
-	temp = newNode;
-
-	newNode->fwdPtr = nullptr;
-
-
+	while()
 }
 
 Student retrieve_front(LLnode * p){
@@ -165,7 +147,7 @@ void display_nodes(LLnode * p){
 		if(p!=nullptr){
 			while(p != nullptr){
 				counter++;
-				cout << "node " << counter << " address -> " << p << " Student Name:" << p->theData.studentName << " Student ID: " << p->theData.studentName << endl;
+				cout << "node " << counter << " address -> " << p << " Student Name:" << p->theData.studentName << " Student ID: " << p->theData.studentID << endl;
 				p = p->fwdPtr;
 			}
 		}
@@ -174,5 +156,6 @@ void display_nodes(LLnode * p){
 		}
 }
 //cout << "node " << counter << "address -> " << p->fwdPtr << "Student Name:" << p->fwdPtr->theData.studentName << "Student ID: " << p->fwdPtr->theData.studentName << endl;
+
 
 
